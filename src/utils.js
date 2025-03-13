@@ -30,7 +30,7 @@ export function createRouteLocation(fullPath, query = {}) {
   // 合并传入的查询参数
   Object.assign(params, query);
   
-  return {
+  const routeLocation = {
     path,
     fullPath,
     params,
@@ -38,7 +38,19 @@ export function createRouteLocation(fullPath, query = {}) {
     name: '',
     meta: {},
     hash: '',
+    matched: []
   };
+  
+  // 防止循环引用
+  Object.defineProperty(routeLocation, 'toJSON', {
+    enumerable: false,
+    value: function() {
+      const { matched, ...rest } = this;
+      return rest;
+    }
+  });
+  
+  return routeLocation;
 }
 
 /**
@@ -112,4 +124,17 @@ export function extractParams(url) {
   });
   
   return params;
+}
+
+/**
+ * 创建可安全序列化的路由对象
+ * 移除循环引用
+ * @param {Object} route 路由对象
+ * @returns {Object} 可安全序列化的路由对象
+ */
+export function createSerializableRoute(route) {
+  if (!route) return {};
+  
+  const { matched, ...rest } = route;
+  return rest;
 } 

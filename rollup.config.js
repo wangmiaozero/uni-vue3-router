@@ -2,7 +2,31 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
+import typescript from '@rollup/plugin-typescript';
+import dts from 'rollup-plugin-dts';
 import pkg from './package.json';
+
+// 共享的插件配置
+const commonPlugins = [
+  resolve({
+    extensions: ['.js', '.ts']
+  }),
+  commonjs(),
+  typescript({ 
+    tsconfig: './tsconfig.json',
+    sourceMap: true,
+    declaration: true,
+    declarationDir: './dist',
+    include: ['src/**/*.ts', 'src/**/*.js'],
+    exclude: ['node_modules', 'dist']
+  }),
+  babel({
+    babelHelpers: 'bundled',
+    presets: [['@babel/preset-env', { targets: '> 1%, not dead' }]],
+    extensions: ['.js', '.ts'],
+    exclude: 'node_modules/**'
+  })
+];
 
 export default [
   // UMD build (for browsers)
@@ -15,17 +39,12 @@ export default [
       exports: 'named',
       globals: {
         vue: 'Vue'
-      }
+      },
+      sourcemap: true
     },
     external: ['vue'],
     plugins: [
-      resolve(),
-      commonjs(),
-      babel({
-        babelHelpers: 'bundled',
-        presets: [['@babel/preset-env', { targets: '> 1%, not dead' }]],
-        exclude: 'node_modules/**'
-      }),
+      ...commonPlugins,
       terser()
     ]
   },
@@ -35,16 +54,28 @@ export default [
     output: {
       file: pkg.module,
       format: 'es',
-      exports: 'named'
+      exports: 'named',
+      sourcemap: true
     },
     external: ['vue'],
     plugins: [
-      resolve(),
-      commonjs(),
-      babel({
-        babelHelpers: 'bundled',
-        presets: [['@babel/preset-env', { targets: '> 1%, not dead' }]],
-        exclude: 'node_modules/**'
+      ...commonPlugins
+    ]
+  },
+  // TypeScript declaration files
+  {
+    input: 'src/index.js',
+    output: {
+      file: pkg.types,
+      format: 'es'
+    },
+    plugins: [
+      dts({
+        compilerOptions: {
+          allowJs: true,
+          declaration: true,
+          emitDeclarationOnly: true
+        }
       })
     ]
   }

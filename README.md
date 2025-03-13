@@ -2,10 +2,11 @@
 
 [中文](./README.zh-CN.md) | [English](./README.md)
 
-A Vue Router-style routing library for uni-app, supporting vite+vue3+javascript environments.
+A Vue Router-style routing library for uni-app, supporting vite+vue3+javascript/typescript environments.
 
 [![GitHub](https://img.shields.io/badge/GitHub-wangmiaozero/uni--vue3--router-blue?logo=github)](https://github.com/wangmiaozero/uni-vue3-router)
-[![Author](https://img.shields.io/badge/wangmiaozero-orange)](https://github.com/wangmiaozero)
+[![Author](https://img.shields.io/badge/Author-wangmiaozero-orange)](https://github.com/wangmiaozero)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Supported-blue)](https://www.typescriptlang.org/)
 
 ## Features
 
@@ -14,6 +15,7 @@ A Vue Router-style routing library for uni-app, supporting vite+vue3+javascript 
 - Support for Composition API
 - Support for route guards (beforeEach, afterEach, beforeResolve)
 - Support for page component-level navigation guards (onBeforeRouteLeave, onBeforeRouteUpdate)
+- **TypeScript Support** - Full type definitions for better development experience
 
 ## Installation
 
@@ -241,6 +243,32 @@ export default {
 - `onBeforeRouteLeave(guard)` - Add leave guard
 - `onBeforeRouteUpdate(guard)` - Add update guard
 
+## TypeScript Support
+
+This library includes full TypeScript support with type definitions for all APIs. When using TypeScript, you'll get:
+
+- Type checking for router configuration
+- Autocomplete for router methods and properties
+- Type safety for navigation guards and hooks
+- Better IDE integration
+
+Example usage with TypeScript:
+
+```ts
+// router.ts
+import { createRouter, RouteRecordRaw } from 'uni-vue3-router'
+
+const routes: RouteRecordRaw[] = [
+  { path: '/pages/index/index', name: 'home' },
+  { path: '/pages/my/index', name: 'my' }
+]
+
+const router = createRouter({
+  routes
+})
+
+export default router
+```
 
 ## License
 

@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [uni()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      'uni-vue3-router': path.resolve(__dirname, '../dist/index.esm.js')
     }
   },
   optimizeDeps: {

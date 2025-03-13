@@ -6,8 +6,11 @@
     
     <view class="section">
       <text class="section-title">当前路由信息</text>
-      <view class="code-block">
-        <text>{{ JSON.stringify(currentRoute, null, 2) }}</text>
+      <view class="card">
+        <text class="card-title">当前路由信息</text>
+        <view class="code-block">
+          <text>{{ safeRouteString }}</text>
+        </view>
       </view>
     </view>
     
@@ -48,7 +51,7 @@
 </template>
 
 <script>
-import { ref, reactive, onMounted } from 'vue';
+import { ref, reactive, onMounted, computed } from 'vue';
 import { useRouter, useRoute } from 'uni-vue3-router';
 
 export default {
@@ -57,7 +60,20 @@ export default {
     const route = useRoute();
     
     // 当前路由信息
-    const currentRoute = reactive({...route});
+    const currentRoute = ref(route);
+    
+    // 安全序列化路由对象，避免循环引用
+    const safeRouteString = computed(() => {
+      try {
+        // 创建一个没有循环引用的新对象
+        const safeRoute = { ...currentRoute.value };
+        // 移除可能导致循环引用的属性
+        delete safeRoute.matched;
+        return JSON.stringify(safeRoute, null, 2);
+      } catch (e) {
+        return '无法序列化路由对象: ' + e.message;
+      }
+    });
     
     // 路由锁定状态
     const lockStatus = ref(router.$lockStatus);
@@ -155,6 +171,7 @@ export default {
     
     return {
       currentRoute,
+      safeRouteString,
       lockStatus,
       navigateTo,
       navigateTab,
@@ -197,6 +214,19 @@ export default {
   font-weight: bold;
   margin-bottom: 15px;
   display: block;
+}
+
+.card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .code-block {

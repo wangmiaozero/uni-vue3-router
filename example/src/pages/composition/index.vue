@@ -20,7 +20,7 @@
         <text>useRoute() 返回当前路由对象，包含路径、参数等信息</text>
       </view>
       <view class="code-block">
-        <text>{{ JSON.stringify(route, null, 2) }}</text>
+        <text>{{ safeRouteString }}</text>
       </view>
       <view class="button-group">
         <button type="primary" @click="addQueryParam">添加查询参数</button>
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { ref, watch } from 'vue';
+import { ref, watch, computed } from 'vue';
 import { useRouter, useRoute, onBeforeRouteLeave, onBeforeRouteUpdate } from 'uni-vue3-router';
 
 export default {
@@ -66,6 +66,19 @@ export default {
     // 状态
     const guardStatus = ref('等待触发守卫');
     const routeChangeCount = ref(0);
+    
+    // 安全序列化路由对象，避免循环引用
+    const safeRouteString = computed(() => {
+      try {
+        // 创建一个没有循环引用的新对象
+        const safeRoute = { ...route };
+        // 移除可能导致循环引用的属性
+        delete safeRoute.matched;
+        return JSON.stringify(safeRoute, null, 2);
+      } catch (e) {
+        return '无法序列化路由对象: ' + e.message;
+      }
+    });
     
     // 使用router导航
     function navigateWithRouter() {
@@ -110,6 +123,7 @@ export default {
     return {
       router,
       route,
+      safeRouteString,
       guardStatus,
       routeChangeCount,
       navigateWithRouter,

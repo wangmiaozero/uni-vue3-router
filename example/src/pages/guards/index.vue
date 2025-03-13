@@ -37,23 +37,35 @@
     <view class="section">
       <text class="section-title">当前路由信息</text>
       <view class="code-block">
-        <text>{{ JSON.stringify(currentRoute, null, 2) }}</text>
+        <text>{{ safeRouteString }}</text>
       </view>
     </view>
   </view>
 </template>
 
 <script>
-import { reactive } from 'vue';
+import { reactive, ref, computed } from 'vue';
 import { useRouter, useRoute, onBeforeRouteLeave, onBeforeRouteUpdate } from 'uni-vue3-router';
 
 export default {
   setup() {
     const router = useRouter();
     const route = useRoute();
+    const currentRoute = ref(route);
+    const guardLogs = ref([]);
     
-    // 当前路由信息
-    const currentRoute = reactive({...route});
+    // 安全序列化路由对象，避免循环引用
+    const safeRouteString = computed(() => {
+      try {
+        // 创建一个没有循环引用的新对象
+        const safeRoute = { ...currentRoute.value };
+        // 移除可能导致循环引用的属性
+        delete safeRoute.matched;
+        return JSON.stringify(safeRoute, null, 2);
+      } catch (e) {
+        return '无法序列化路由对象: ' + e.message;
+      }
+    });
     
     // 路由离开守卫
     onBeforeRouteLeave((to, from, next) => {
@@ -79,7 +91,7 @@ export default {
       });
       
       // 更新当前显示的路由信息
-      Object.assign(currentRoute, to);
+      Object.assign(currentRoute.value, to);
       
       next();
     });
@@ -107,6 +119,8 @@ export default {
     
     return {
       currentRoute,
+      safeRouteString,
+      guardLogs,
       navigateToAuth,
       updateQuery,
       navigateAway

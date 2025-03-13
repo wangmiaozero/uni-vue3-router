@@ -2,10 +2,11 @@
 
 [中文](./README.zh-CN.md) | [English](./README.md)
 
-基于uni-app封装的Vue Router风格路由库，支持vite+vue3+javascript环境。
+基于uni-app封装的Vue Router风格路由库，支持vite+vue3+javascript/typescript环境。
 
 [![GitHub](https://img.shields.io/badge/GitHub-wangmiaozero/uni--vue3--router-blue?logo=github)](https://github.com/wangmiaozero/uni-vue3-router)
-[![作者](https://img.shields.io/badge/wangmiaozero-orange)](https://github.com/wangmiaozero)
+[![作者](https://img.shields.io/badge/作者-wangmiaozero-orange)](https://github.com/wangmiaozero)
+[![TypeScript](https://img.shields.io/badge/TypeScript-支持-blue)](https://www.typescriptlang.org/)
 
 ## 特性
 
@@ -14,6 +15,7 @@
 - 支持组合式API (Composition API)
 - 支持路由守卫 (beforeEach, afterEach, beforeResolve)
 - 支持页面组件级导航守卫 (onBeforeRouteLeave, onBeforeRouteUpdate)
+- **TypeScript支持** - 完整的类型定义，提供更好的开发体验
 
 ## 安装
 
@@ -241,6 +243,32 @@ export default {
 - `onBeforeRouteLeave(guard)` - 添加离开守卫
 - `onBeforeRouteUpdate(guard)` - 添加更新守卫
 
+## TypeScript支持
+
+本库包含完整的TypeScript支持，为所有API提供类型定义。使用TypeScript时，您将获得：
+
+- 路由配置的类型检查
+- 路由方法和属性的自动完成
+- 导航守卫和钩子的类型安全
+- 更好的IDE集成
+
+TypeScript使用示例：
+
+```ts
+// router.ts
+import { createRouter, RouteRecordRaw } from 'uni-vue3-router'
+
+const routes: RouteRecordRaw[] = [
+  { path: '/pages/index/index', name: 'home' },
+  { path: '/pages/my/index', name: 'my' }
+]
+
+const router = createRouter({
+  routes
+})
+
+export default router
+```
 
 ## 许可证
 
