@@ -1,7 +1,7 @@
 {
   "name": "uni-vue3-router",
   "version": "1.0.0",
-  "description": "Vue Router风格的uni-app路由库，支持vite+vue3+javascript环境",
+  "description": "A Vue Router-style routing library for uni-app, supporting vite+vue3+javascript environments. Vue Router风格的uni-app路由库，支持vite+vue3+javascript环境",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -26,12 +26,12 @@
   "license": "Custom",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/uni-vue3-router.git"
+    "url": "git+https://github.com/wangmiaozero/uni-vue3-router.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/uni-vue3-router/issues"
+    "url": "https://github.com/wangmiaozero/uni-vue3-router/issues"
   },
-  "homepage": "https://github.com/yourusername/uni-vue3-router#readme",
+  "homepage": "https://github.com/wangmiaozero/uni-vue3-router#readme",
   "peerDependencies": {
     "vue": "^3.2.0"
   },
