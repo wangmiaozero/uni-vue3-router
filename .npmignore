@@ -1,0 +1,12 @@
+.git
+.gitignore
+node_modules
+example
+rollup.config.js
+.eslintrc.js
+.editorconfig
+.DS_Store
+*.log
+coverage
+.vscode
+.idea 

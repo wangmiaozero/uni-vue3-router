@@ -1,0 +1,82 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/detail/index",
+      "style": {
+        "navigationBarTitleText": "详情页",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/user/index",
+      "style": {
+        "navigationBarTitleText": "用户页",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/router-demo/index",
+      "style": {
+        "navigationBarTitleText": "路由方法演示",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/guards/index",
+      "style": {
+        "navigationBarTitleText": "路由守卫演示",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/composition/index",
+      "style": {
+        "navigationBarTitleText": "组合式API演示",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/dynamic/index",
+      "style": {
+        "navigationBarTitleText": "动态路由页面",
+        "enablePullDownRefresh": false
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-vue3-router示例",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "app-plus": {
+      "background": "#efeff4"
+    }
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/logo.png",
+        "selectedIconPath": "static/logo.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "iconPath": "static/logo.png",
+        "selectedIconPath": "static/logo.png",
+        "text": "用户"
+      }
+    ]
+  }
+} 

@@ -1,0 +1,48 @@
+{
+  "name": "uni-vue3-router",
+  "version": "1.0.0",
+  "description": "Vue Router风格的uni-app路由库，支持vite+vue3+javascript环境",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "npx rollup -c -w",
+    "build": "npx rollup -c",
+    "prepublishOnly": "npm run build",
+    "lint": "npx eslint src --ext .js,.ts --fix"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "uni-app",
+    "router",
+    "vue3",
+    "vite",
+    "navigation"
+  ],
+  "author": "wangmiaozero",
+  "license": "Custom",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/uni-vue3-router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/uni-vue3-router/issues"
+  },
+  "homepage": "https://github.com/yourusername/uni-vue3-router#readme",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "eslint": "^8.19.0",
+    "rollup": "^2.77.0"
+  }
+} 

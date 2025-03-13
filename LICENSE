@@ -1,0 +1,45 @@
+# 自定义开源许可证
+
+版权所有 (c) 2025 wangmiaozero
+
+特此免费授予任何获得本软件及相关文档文件（"软件"）副本的人不受限制地处理本软件的权利，
+包括但不限于使用、复制、修改、合并、发布、分发、再许可和/或销售本软件的副本，
+以及允许获得本软件的人这样做，但须符合以下条件：
+
+1. 上述版权声明和本许可声明应包含在本软件的所有副本或重要部分中。
+
+2. 使用本软件的项目应在其文档或界面中明确标明使用了本软件，并包含指向原始项目的链接。
+
+3. 如果您在GitHub或其他支持"Star"功能的平台上使用本软件，您应当为原始项目点赞（Star）以示支持。
+
+4. 特别声明：无论是否用于商业目的，使用本软件所产生的任何后果、责任和法律问题均由使用者自行承担，与原作者无关。原作者不对任何商业使用或其他使用方式承担任何责任。
+
+本软件按"原样"提供，不提供任何形式的明示或暗示的保证，包括但不限于对适销性、特定用途的适用性和非侵权性的保证。
+在任何情况下，作者或版权持有人均不对任何索赔、损害或其他责任负责，无论是在合同诉讼、侵权行为或其他方面，
+由软件或软件的使用或其他交易引起的，与软件有关的或与软件有关的。
+
+---
+
+# Custom Open Source License
+
+Copyright (c) 2025 wangmiaozero
+
+Permission is hereby freely granted to any person obtaining a copy of this software and associated documentation files (the "Software"), 
+to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, 
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+subject to the following conditions:
+
+1. The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+2. Projects using this Software shall clearly indicate the use of this Software in their documentation or interface, 
+   and include a link to the original project.
+
+3. If you use this Software on GitHub or other platforms that support the "Star" feature, 
+   you should star the original project to show your support.
+
+4. Special declaration: Whether used for commercial purposes or not, any consequences, responsibilities, and legal issues arising from the use of this Software shall be borne by the user and are not related to the original author. The original author assumes no responsibility for any commercial use or other usage methods.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
