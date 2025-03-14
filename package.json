@@ -1,6 +1,6 @@
 {
   "name": "uni-vue3-router",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A Vue Router-style routing library for uni-app, supporting vite+vue3+javascript/typescript environments. Vue Router风格的uni-app路由库，支持vite+vue3+javascript/typescript环境",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
